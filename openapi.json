@@ -1,0 +1,149 @@
+{
+	"openapi": "3.0.2",
+	"info": { "title": "FastAPI", "version": "0.1.0" },
+	"paths": {
+		"/": {
+			"get": {
+				"summary": "Read Book",
+				"operationId": "read_book__get",
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": { "application/json": { "schema": {} } }
+					}
+				}
+			}
+		},
+		"/books/{book_id}": {
+			"get": {
+				"summary": "Read Book",
+				"operationId": "read_book_books__book_id__get",
+				"parameters": [
+					{
+						"required": true,
+						"schema": { "title": "Book Id", "type": "integer" },
+						"name": "book_id",
+						"in": "path"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": { "application/json": { "schema": {} } }
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+							}
+						}
+					}
+				}
+			}
+		},
+		"/books/{book_id}/authors/{author_id}": {
+			"get": {
+				"summary": "Read Book Author",
+				"operationId": "read_book_author_books__book_id__authors__author_id__get",
+				"parameters": [
+					{
+						"required": true,
+						"schema": { "title": "Book Id", "type": "integer" },
+						"name": "book_id",
+						"in": "path"
+					},
+					{
+						"required": true,
+						"schema": { "title": "Author Id", "type": "string" },
+						"name": "author_id",
+						"in": "path"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": { "application/json": { "schema": {} } }
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+							}
+						}
+					}
+				}
+			}
+		},
+		"/books/{book_id}/authors/{author_id}/items/{item_id}": {
+			"get": {
+				"summary": "Read Book Author Item",
+				"operationId": "read_book_author_item_books__book_id__authors__author_id__items__item_id__get",
+				"parameters": [
+					{
+						"required": true,
+						"schema": { "title": "Book Id", "type": "integer" },
+						"name": "book_id",
+						"in": "path"
+					},
+					{
+						"required": true,
+						"schema": { "title": "Author Id", "type": "string" },
+						"name": "author_id",
+						"in": "path"
+					},
+					{
+						"required": true,
+						"schema": { "title": "Item Id", "type": "string" },
+						"name": "item_id",
+						"in": "path"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": { "application/json": { "schema": {} } }
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"HTTPValidationError": {
+				"title": "HTTPValidationError",
+				"type": "object",
+				"properties": {
+					"detail": {
+						"title": "Detail",
+						"type": "array",
+						"items": { "$ref": "#/components/schemas/ValidationError" }
+					}
+				}
+			},
+			"ValidationError": {
+				"title": "ValidationError",
+				"required": ["loc", "msg", "type"],
+				"type": "object",
+				"properties": {
+					"loc": {
+						"title": "Location",
+						"type": "array",
+						"items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] }
+					},
+					"msg": { "title": "Message", "type": "string" },
+					"type": { "title": "Error Type", "type": "string" }
+				}
+			}
+		}
+	}
+}
