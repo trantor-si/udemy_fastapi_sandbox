@@ -1,0 +1,47 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "Ubuntu-SQLite",
+      "database": "${workspaceFolder:FastAPI}/TodoApp/todos.db"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Ubuntu-Docker-Postgres",
+      "database": "trantordb",
+      "username": "postgres",
+      "password": "trantor"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 12354,
+      "driver": "MariaDB",
+      "name": "Ubuntu-Docker-MariaDB",
+      "username": "root",
+      "password": "trantor",
+      "database": "trantordb"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "127.0.0.1",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "Ubuntu-Docker-Mysql",
+      "password": "Trantor#1",
+      "username": "root",
+      "database": "trantor"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}
